@@ -1,0 +1,63 @@
+x <- c(0.5,0.6)
+print(x)
+x <- vector("numeric",length=10)
+x
+x <- 0.6
+x
+class(x)
+as.numeric(x)
+as.logical(x)
+as.character(x)
+x <- c("a","b","c")
+as.numeric(x)
+as.complex(X)
+as.complex(x)
+m <- matrix(nrow = 2,ncol =3)
+m
+dim(m)
+attributes(m)
+m <- matrix(1:6, nrow=2, ncol=3)
+m
+m <- 1:10
+m
+dim(m) <- c(2,5)
+m
+x <- list(1,"a",TRUE,1+4i)
+x
+q()
+x <- factor(c("yes","yes","no","yes","no"))
+x
+table (x)
+unclass(x)
+x <- list(a=1,b=2,c=3)
+x
+x <- list(a,b,c)
+x <- list("a","b","c")
+x
+x <- list("1","2","0")
+x
+x <- c("a","b","c","c","d","a")
+x
+x[1;4]
+x[1:4]
+x[x."b"]
+x[x>"b"]
+u <- x > "a"
+u
+x[u]
+x <- matrix(1:6,2,3)
+x[1,2]
+x[1]
+x[5,1]
+x[3,1]
+x[0,1]
+x[2,1]
+x[1,]
+x[,2]
+x[,3]
+x[1,2,drop = FALSE]
+x <- matrix(1:6,1,2)
+x[1,2,drop = FALSE]
+x[1,2,drop = TRUE]
+x[1,,drop = TRUE]
+x[1,,drop = FALSE]
