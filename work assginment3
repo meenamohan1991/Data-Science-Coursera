@@ -1,0 +1,556 @@
+outcome <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
+> head(outcome)
+  Provider.Number                    Hospital.Name                  Address.1
+1          010001 SOUTHEAST ALABAMA MEDICAL CENTER     1108 ROSS CLARK CIRCLE
+2          010005    MARSHALL MEDICAL CENTER SOUTH 2505 U S HIGHWAY 431 NORTH
+3          010006   ELIZA COFFEE MEMORIAL HOSPITAL         205 MARENGO STREET
+4          010007         MIZELL MEMORIAL HOSPITAL              702 N MAIN ST
+5          010008      CRENSHAW COMMUNITY HOSPITAL        101 HOSPITAL CIRCLE
+6          010010    MARSHALL MEDICAL CENTER NORTH    8000 ALABAMA HIGHWAY 69
+  Address.2 Address.3         City State ZIP.Code County.Name Phone.Number
+1                           DOTHAN    AL    36301     HOUSTON   3347938701
+2                             BOAZ    AL    35957    MARSHALL   2565938310
+3                         FLORENCE    AL    35631  LAUDERDALE   2567688400
+4                              OPP    AL    36467   COVINGTON   3344933541
+5                          LUVERNE    AL    36049    CRENSHAW   3343353374
+6                     GUNTERSVILLE    AL    35976    MARSHALL   2565718000
+  Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack
+1                                                      14.3
+2                                                      18.5
+3                                                      18.1
+4                                             Not Available
+5                                             Not Available
+6                                             Not Available
+  Comparison.to.U.S..Rate...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack
+1                                                No Different than U.S. National Rate
+2                                                No Different than U.S. National Rate
+3                                                No Different than U.S. National Rate
+4                                                           Number of Cases Too Small
+5                                                           Number of Cases Too Small
+6                                                           Number of Cases Too Small
+  Lower.Mortality.Estimate...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack
+1                                                                                 12.1
+2                                                                                 14.7
+3                                                                                 14.8
+4                                                                        Not Available
+5                                                                        Not Available
+6                                                                        Not Available
+  Upper.Mortality.Estimate...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack
+1                                                                                 17.0
+2                                                                                 23.0
+3                                                                                 21.8
+4                                                                        Not Available
+5                                                                        Not Available
+6                                                                        Not Available
+  Number.of.Patients...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack
+1                                                                            666
+2                                                                             44
+3                                                                            329
+4                                                                             14
+5                                                                              9
+6                                                                             22
+                               Footnote...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack
+1                                                                                                  
+2                                                                                                  
+3                                                                                                  
+4 number of cases is too small (fewer than 25) to reliably tell how well the hospital is performing
+5 number of cases is too small (fewer than 25) to reliably tell how well the hospital is performing
+6 number of cases is too small (fewer than 25) to reliably tell how well the hospital is performing
+  Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure
+1                                                       11.4
+2                                                       15.2
+3                                                       11.3
+4                                                       13.6
+5                                                       13.8
+6                                                       12.5
+  Comparison.to.U.S..Rate...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure
+1                                                 No Different than U.S. National Rate
+2                                                        Worse than U.S. National Rate
+3                                                 No Different than U.S. National Rate
+4                                                 No Different than U.S. National Rate
+5                                                 No Different than U.S. National Rate
+6                                                 No Different than U.S. National Rate
+  Lower.Mortality.Estimate...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure
+1                                                                                   9.5
+2                                                                                  12.2
+3                                                                                   9.1
+4                                                                                  10.0
+5                                                                                   9.9
+6                                                                                   9.9
+  Upper.Mortality.Estimate...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure
+1                                                                                  13.7
+2                                                                                  18.8
+3                                                                                  13.9
+4                                                                                  18.2
+5                                                                                  18.7
+6                                                                                  15.6
+  Number.of.Patients...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure
+1                                                                             741
+2                                                                             234
+3                                                                             523
+4                                                                             113
+5                                                                              53
+6                                                                             163
+  Footnote...Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure
+1                                                                      
+2                                                                      
+3                                                                      
+4                                                                      
+5                                                                      
+6                                                                      
+  Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia
+1                                                   10.9
+2                                                   13.9
+3                                                   13.4
+4                                                   14.9
+5                                                   15.8
+6                                                    8.7
+  Comparison.to.U.S..Rate...Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia
+1                                             No Different than U.S. National Rate
+2                                             No Different than U.S. National Rate
+3                                             No Different than U.S. National Rate
+4                                             No Different than U.S. National Rate
+5                                             No Different than U.S. National Rate
+6                                                   Better than U.S. National Rate
+  Lower.Mortality.Estimate...Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia
+1                                                                               8.6
+2                                                                              11.3
+3                                                                              11.2
+4                                                                              11.6
+5                                                                              11.4
+6                                                                               6.8
+  Upper.Mortality.Estimate...Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia
+1                                                                              13.7
+2                                                                              17.0
+3                                                                              15.8
+4                                                                              19.0
+5                                                                              21.5
+6                                                                              11.0
+  Number.of.Patients...Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia
+1                                                                         371
+2                                                                         372
+3                                                                         836
+4                                                                         239
+5                                                                          61
+6                                                                         315
+  Footnote...Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia
+1                                                                  
+2                                                                  
+3                                                                  
+4                                                                  
+5                                                                  
+6                                                                  
+  Hospital.30.Day.Readmission.Rates.from.Heart.Attack
+1                                                19.0
+2                                       Not Available
+3                                                17.8
+4                                       Not Available
+5                                       Not Available
+6                                       Not Available
+  Comparison.to.U.S..Rate...Hospital.30.Day.Readmission.Rates.from.Heart.Attack
+1                                          No Different than U.S. National Rate
+2                                                     Number of Cases Too Small
+3                                          No Different than U.S. National Rate
+4                                                     Number of Cases Too Small
+5                                                     Number of Cases Too Small
+6                                                     Number of Cases Too Small
+  Lower.Readmission.Estimate...Hospital.30.Day.Readmission.Rates.from.Heart.Attack
+1                                                                             16.6
+2                                                                    Not Available
+3                                                                             14.9
+4                                                                    Not Available
+5                                                                    Not Available
+6                                                                    Not Available
+  Upper.Readmission.Estimate...Hospital.30.Day.Readmission.Rates.from.Heart.Attack
+1                                                                             21.7
+2                                                                    Not Available
+3                                                                             21.5
+4                                                                    Not Available
+5                                                                    Not Available
+6                                                                    Not Available
+  Number.of.Patients...Hospital.30.Day.Readmission.Rates.from.Heart.Attack
+1                                                                      728
+2                                                                       21
+3                                                                      342
+4                                                                        1
+5                                                                        4
+6                                                                       13
+                                     Footnote...Hospital.30.Day.Readmission.Rates.from.Heart.Attack
+1                                                                                                  
+2 number of cases is too small (fewer than 25) to reliably tell how well the hospital is performing
+3                                                                                                  
+4 number of cases is too small (fewer than 25) to reliably tell how well the hospital is performing
+5 number of cases is too small (fewer than 25) to reliably tell how well the hospital is performing
+6 number of cases is too small (fewer than 25) to reliably tell how well the hospital is performing
+  Hospital.30.Day.Readmission.Rates.from.Heart.Failure
+1                                                 23.7
+2                                                 22.5
+3                                                 19.8
+4                                                 27.1
+5                                                 24.7
+6                                                 23.9
+  Comparison.to.U.S..Rate...Hospital.30.Day.Readmission.Rates.from.Heart.Failure
+1                                           No Different than U.S. National Rate
+2                                           No Different than U.S. National Rate
+3                                                 Better than U.S. National Rate
+4                                           No Different than U.S. National Rate
+5                                           No Different than U.S. National Rate
+6                                           No Different than U.S. National Rate
+  Lower.Readmission.Estimate...Hospital.30.Day.Readmission.Rates.from.Heart.Failure
+1                                                                              21.3
+2                                                                              19.2
+3                                                                              17.2
+4                                                                              22.4
+5                                                                              19.9
+6                                                                              20.1
+  Upper.Readmission.Estimate...Hospital.30.Day.Readmission.Rates.from.Heart.Failure
+1                                                                              26.5
+2                                                                              26.1
+3                                                                              22.9
+4                                                                              31.9
+5                                                                              30.2
+6                                                                              28.2
+  Number.of.Patients...Hospital.30.Day.Readmission.Rates.from.Heart.Failure
+1                                                                       891
+2                                                                       264
+3                                                                       614
+4                                                                       135
+5                                                                        59
+6                                                                       173
+  Footnote...Hospital.30.Day.Readmission.Rates.from.Heart.Failure
+1                                                                
+2                                                                
+3                                                                
+4                                                                
+5                                                                
+6                                                                
+  Hospital.30.Day.Readmission.Rates.from.Pneumonia
+1                                             17.1
+2                                             17.6
+3                                             16.9
+4                                             19.4
+5                                             18.0
+6                                             18.7
+  Comparison.to.U.S..Rate...Hospital.30.Day.Readmission.Rates.from.Pneumonia
+1                                       No Different than U.S. National Rate
+2                                       No Different than U.S. National Rate
+3                                       No Different than U.S. National Rate
+4                                       No Different than U.S. National Rate
+5                                       No Different than U.S. National Rate
+6                                       No Different than U.S. National Rate
+  Lower.Readmission.Estimate...Hospital.30.Day.Readmission.Rates.from.Pneumonia
+1                                                                          14.4
+2                                                                          15.0
+3                                                                          14.7
+4                                                                          15.9
+5                                                                          14.0
+6                                                                          15.7
+  Upper.Readmission.Estimate...Hospital.30.Day.Readmission.Rates.from.Pneumonia
+1                                                                          20.4
+2                                                                          20.6
+3                                                                          19.5
+4                                                                          23.2
+5                                                                          22.8
+6                                                                          22.2
+  Number.of.Patients...Hospital.30.Day.Readmission.Rates.from.Pneumonia
+1                                                                   400
+2                                                                   374
+3                                                                   842
+4                                                                   254
+5                                                                    56
+6                                                                   326
+  Footnote...Hospital.30.Day.Readmission.Rates.from.Pneumonia
+1                                                            
+2                                                            
+3                                                            
+4                                                            
+5                                                            
+6                                                            
+>  hist(outcome[, 11])
+Error in hist.default(outcome[, 11]) : 'x' must be numeric
+> source("best.R")
+> best("TX", "heart attack")
+Error in best("TX", "heart attack") : could not find function "Init"
+> best("TX", "heart attack")
+Error in best("TX", "heart attack") : could not find function "Init"
+> source("best.R")
+> best("TX", "heart attack")
+Error in best("TX", "heart attack") : could not find function "Init"
+> best <- function(stateChr, outcomeChr) {
++     # --- Init loading outcome data
++     outcomeDfr <- Init("r programming/9-7-14 r programming/week4/ProgAssignment2-data/outcome-of-care-measures.csv")
++ 
++     # --- Coerce character into numeric
++     suppressWarnings(outcomeDfr[, 11] <- as.numeric(outcomeDfr[, 11]))
++     suppressWarnings(outcomeDfr[, 17] <- as.numeric(outcomeDfr[, 17]))
++     suppressWarnings(outcomeDfr[, 23] <- as.numeric(outcomeDfr[, 23]))
++ 
++     # --- Create a data frame of freq by state Remove row.names
++     tableDfr <- data.frame(State = names(tapply(outcomeDfr$State, outcomeDfr$State, 
++         length)), Freq = tapply(outcomeDfr$State, outcomeDfr$State, length))
++     rownames(tableDfr) <- NULL
++ 
++     # --- Create a data frame of possible inputs and respective columns
++     inputDfr <- data.frame(Outcome = c("heart attack", "heart failure", "pneumonia"), 
++         Col = c(11, 17, 23))
++ 
++     # --- Check that state and outcome are valid
++     if (nrow(tableDfr[tableDfr$State == stateChr, ]) == 0) 
++         stop("invalid state")
++     if (nrow(inputDfr[inputDfr$Outcome == outcomeChr, ]) == 0) 
++         stop("invalid outcome")
++ 
++     # --- Return hospital name in that state with lowest THIRTY(30)-day death
++     # rate Create a data frame with given ONE (1) state Determine the relevant
++     # row and column
++     stateDfr <- outcomeDfr[outcomeDfr$State == stateChr, ]
++     colNum <- inputDfr[inputDfr$Outcome == outcomeChr, 2]
++     rowNum <- which.min(stateDfr[, colNum])
++     return(stateDfr[rowNum, ]$Hospital.Name)
++ }
+> best("TX", "heart attack")
+Error in best("TX", "heart attack") : could not find function "Init"
+> source("http://spark-public.s3.amazonaws.com/compdata/scripts/submitscript.R")    
+> submit()  
+Loading required package: bitops
+Submission login (email): meena1991_m@yahoo.com
+Submission  password: meenamohan
+[1] 'best' part 1
+[2] 'best' part 2
+[3] 'best' part 3
+[4] 'rankhospital' part 1
+[5] 'rankhospital' part 2
+[6] 'rankhospital' part 3
+[7] 'rankhospital' part 4
+[8] 'rankall' part 1
+[9] 'rankall' part 2
+[10] 'rankall' part 3
+Which part are you submitting [1-10]? 1
+Running test:
+best("SC", "heart attack")
+Error in best("SC", "heart attack") : could not find function "Init"
+In addition: Warning messages:
+1: package ‘RCurl’ was built under R version 3.1.1 
+2: package ‘bitops’ was built under R version 3.1.1 
+3: package ‘digest’ was built under R version 3.1.1 
+> library(lattice)
+> Init <- function(fileStr, workDirStr = "C:/Users/denbrige/100 FxOption/103 FxOptionVerBack/080 Fx Git/R-source") {
++     setwd(workDirStr)
++     retDfr <- read.csv(fileStr, colClasses = "character")
++     return(retDfr)
++ }
+> source("best.R")
+> best("TX", "heart failure")
+Error in setwd(workDirStr) : cannot change working directory
+> getwd()
+[1] "D:/r programming/9-7-14 r programming/week4/ProgAssignment2-data"
+> setwd()
+Error in setwd() : argument "dir" is missing, with no default
+> setwd(D:/r programming/9-7-14 r programming/week4/ProgAssignment2-data)
+Error: unexpected '/' in "setwd(D:/"
+> setwd(r programming/9-7-14 r programming/week4/ProgAssignment2-data)
+Error: unexpected symbol in "setwd(r programming"
+> setwd("r programming/9-7-14 r programming/week4/ProgAssignment2-data")
+Error in setwd("r programming/9-7-14 r programming/week4/ProgAssignment2-data") : 
+  cannot change working directory
+> setwd("r programming/9-7-14 r programming/week4/ProgAssignment2-data")
+Error in setwd("r programming/9-7-14 r programming/week4/ProgAssignment2-data") : 
+  cannot change working directory
+> source("best.R")
+> setwd("r programming/9-7-14 r programming/week4/ProgAssignment2-data")
+Error in setwd("r programming/9-7-14 r programming/week4/ProgAssignment2-data") : 
+  cannot change working directory
+> x<-table(outcome$State)
+> sub_x<-subset(x,x>=20)
+> sub_x_names<-names(sub_x)
+> outcome2<-subset(outcome,outcome$State %in% sub_x_names)
+> pneumonia=na.omit(outcome[,23])
+> getwd()
+[1] "D:/r programming/9-7-14 r programming/week4/ProgAssignment2-data"
+> source("best.R")
+> best("TX", "heart failure")
+[1] "FORT DUNCAN MEDICAL CENTER"
+Warning message:
+In best("TX", "heart failure") : NAs introduced by coercion
+> best("SC", "heart attack")
+[1] "MUSC MEDICAL CENTER"
+Warning message:
+In best("SC", "heart attack") : NAs introduced by coercion
+> best("SC", "heart attack")
+[1] "MUSC MEDICAL CENTER"
+Warning message:
+In best("SC", "heart attack") : NAs introduced by coercion
+> best("NY", "pneumonia")
+[1] "MAIMONIDES MEDICAL CENTER"
+Warning message:
+In best("NY", "pneumonia") : NAs introduced by coercion
+> best("NN", "pneumonia")
+Error in best("NN", "pneumonia") : invalid state
+> cat("best(\"NN\", \"pneumonia\")\n")
+best("NN", "pneumonia")
+> 
+> best("NN", "pneumonia")
+Error in best("NN", "pneumonia") : invalid state
+> if(sid == "best-3") {
++                         source("best.R", local = TRUE)
++                         cat("Running test:\n")
++                         cat("best(\"NN\", \"pneumonia\")\n")
++                         r <- tryCatch(best("NN", "pneumonia"), error = function(e) e)
++                         if(!inherits(r, "error"))
++                                 stop("'best' should throw an error via the 'stop' function in this case")
++                         tolower(conditionMessage(r))
++                 }
+Error: object 'sid' not found
+> source("submit.R")
+Error in file(filename, "r", encoding = encoding) : 
+  cannot open the connection
+In addition: Warning message:
+In file(filename, "r", encoding = encoding) :
+  cannot open file 'submit.R': No such file or directory
+> source("submitscript3.R")
+>                 best("NN", "pneumonia")
+Error in best("NN", "pneumonia") : invalid state
+> rankall("heart attack", 4)
+Error: could not find function "rankall"
+> source("submitscript3.R")
+> source("rankall.R")
+> rankall("heart attack", 4)
+                                       hospital state
+1                  ALASKA NATIVE MEDICAL CENTER    AK
+2                            GEORGIANA HOSPITAL    AL
+3                 NEA BAPTIST MEMORIAL HOSPITAL    AR
+4          BANNER GOOD SAMARITAN MEDICAL CENTER    AZ
+5                   CEDARS-SINAI MEDICAL CENTER    CA
+6               EXEMPLA LUTHERAN MEDICAL CENTER    CO
+7                          SAINT MARYS HOSPITAL    CT
+8                    WASHINGTON HOSPITAL CENTER    DC
+9                   NANTICOKE MEMORIAL HOSPITAL    DE
+10                PALM SPRINGS GENERAL HOSPITAL    FL
+11                              GORDON HOSPITAL    GA
+12                                         <NA>    GU
+13                        CASTLE MEDICAL CENTER    HI
+14              MERCY MEDICAL CENTER-NORTH IOWA    IA
+15             ST LUKES REGIONAL MEDICAL CENTER    ID
+16              LITTLE COMPANY OF MARY HOSPITAL    IL
+17                     COMMUNITY HOSPITAL SOUTH    IN
+18                          HAYS MEDICAL CENTER    KS
+19                CLARK REGIONAL MEDICAL CENTER    KY
+20                  OCHSNER FOUNDATION HOSPITAL    LA
+21                             EMERSON HOSPITAL    MA
+22                          HOLY CROSS HOSPITAL    MD
+23                 AROOSTOOK MEDICAL CENTER,THE    ME
+24               WILLIAM BEAUMONT HOSPITAL-TROY    MI
+25                MINNEAPOLIS VA MEDICAL CENTER    MN
+26             ST LUKES HOSPITAL OF KANSAS CITY    MO
+27           BAPTIST MEMORIAL HOSPITAL NORTH MS    MS
+28                 COMMUNITY MEDICAL CENTER INC    MT
+29                IREDELL MEMORIAL HOSPITAL INC    NC
+30                                MEDCENTER ONE    ND
+31                    ST FRANCIS MEDICAL CENTER    NE
+32                 PORTSMOUTH REGIONAL HOSPITAL    NH
+33                 MORRISTOWN MEMORIAL HOSPITAL    NJ
+34                  MEMORIAL MEDICAL CENTER INC    NM
+35 SAINT ROSE DOMINICAN HOSPITAL - SIENA CAMPUS    NV
+36                  ST FRANCIS HOSPITAL, ROSLYN    NY
+37                      GOOD SAMARITAN HOSPITAL    OH
+38                    STILLWATER MEDICAL CENTER    OK
+39                PROVIDENCE MILWAUKIE HOSPITAL    OR
+40                       LEHIGH VALLEY HOSPITAL    PA
+41                       HOSPITAL DR SUSONI INC    PR
+42                KENT COUNTY MEMORIAL HOSPITAL    RI
+43                     TUOMEY HEALTHCARE SYSTEM    SC
+44                   SANFORD USD MEDICAL CENTER    SD
+45       WELLMONT HOLSTON VALLEY MEDICAL CENTER    TN
+46          PARKLAND HEALTH AND HOSPITAL SYSTEM    TX
+47                OGDEN REGIONAL MEDICAL CENTER    UT
+48            RIVERSIDE REGIONAL MEDICAL CENTER    VA
+49                                         <NA>    VI
+50     NORTH COUNTRY HOSPITAL AND HEALTH CENTER    VT
+51                VIRGINIA MASON MEDICAL CENTER    WA
+52               AURORA ST LUKES MEDICAL CENTER    WI
+53                     ST MARY'S MEDICAL CENTER    WV
+54                                         <NA>    WY
+Warning message:
+In rankall("heart attack", 4) : NAs introduced by coercion
+> rankall("heart failure", 10)
+                                             hospital state
+1                         FAIRBANKS MEMORIAL HOSPITAL    AK
+2                           SPRINGHILL MEDICAL CENTER    AL
+3           BAPTIST HEALTH MEDICAL CENTER-LITTLE ROCK    AR
+4                      CARONDELET ST JOSEPHS HOSPITAL    AZ
+5                           HUNTINGTON BEACH HOSPITAL    CA
+6                                MCKEE MEDICAL CENTER    CO
+7                          ROCKVILLE GENERAL HOSPITAL    CT
+8                                                <NA>    DC
+9                                                <NA>    DE
+10                  HIGHLANDS REGIONAL MEDICAL CENTER    FL
+11                DEKALB MEDICAL CENTER AT HILLANDALE    GA
+12                                               <NA>    GU
+13                         HAWAII MEDICAL CENTER EAST    HI
+14                   AUDUBON COUNTY MEMORIAL HOSPITAL    IA
+15                            BONNER GENERAL HOSPITAL    ID
+16                    ALEXIAN BROTHERS MEDICAL CENTER    IL
+17                            CLARK MEMORIAL HOSPITAL    IN
+18                            DECATUR COUNTY HOSPITAL    KS
+19                             ST ELIZABETH FT THOMAS    KY
+20                          ST FRANCIS MEDICAL CENTER    LA
+21                         NORTH SHORE MEDICAL CENTER    MA
+22                         MARYLAND GENERAL  HOSPITAL    MD
+23                                CARY MEDICAL CENTER    ME
+24                OAKWOOD HOSPITAL AND MEDICAL CENTER    MI
+25                           RIDGEVIEW MEDICAL CENTER    MN
+26                       CHRISTIAN HOSPITAL NORTHEAST    MO
+27                         GREENWOOD LEFLORE HOSPITAL    MS
+28                        ST JOHN'S LUTHERAN HOSPITAL    MT
+29                             WAKEMED, CARY HOSPITAL    NC
+30                       SANFORD MEDICAL CENTER FARGO    ND
+31                              YORK GENERAL HOSPITAL    NE
+32                       PORTSMOUTH REGIONAL HOSPITAL    NH
+33                                    VALLEY HOSPITAL    NJ
+34   HOLY CROSS HOSPITAL A DIV OF TAOS HEALTH SYSTEMS    NM
+35                RENOWN SOUTH MEADOWS MEDICAL CENTER    NV
+36                               MOUNT SINAI HOSPITAL    NY
+37                         TRUMBULL MEMORIAL HOSPITAL    OH
+38                               MARY HURLEY HOSPITAL    OK
+39                                ST ANTHONY HOSPITAL    OR
+40                                       UPMC HORIZON    PA
+41                     HOSPITAL HERMANOS MELENDEZ INC    PR
+42                                   NEWPORT HOSPITAL    RI
+43                       CHARLESTON VA MEDICAL CENTER    SC
+44 AVERA MCKENNAN HOSPITAL & UNIVERSITY HEALTH CENTER    SD
+45               FORT SANDERS REGIONAL MEDICAL CENTER    TN
+46                UT SOUTHWESTERN UNIVERSITY HOSPITAL    TX
+47                         VALLEY VIEW MEDICAL CENTER    UT
+48                  CARILION GILES COMMUNITY HOSPITAL    VA
+49                                               <NA>    VI
+50                     CENTRAL VERMONT MEDICAL CENTER    VT
+51                      VIRGINIA MASON MEDICAL CENTER    WA
+52          WHEATON FRANCISCAN HEALTHCARE- ALL SAINTS    WI
+53                       PRINCETON COMMUNITY HOSPITAL    WV
+54                  CAMPBELL COUNTY MEMORIAL HOSPITAL    WY
+Warning message:
+In rankall("heart failure", 10) : NAs introduced by coercion
+> rankhospital("NC", "heart attack", "worst")
+Error: could not find function "rankhospital"
+> source("rankhospital.R")
+> rankhospital("NC", "heart attack", "worst")
+Error in data$State : object of type 'closure' is not subsettable
+> source("rankhospital.R")
+> rankhospital("NC", "heart attack", "worst")
+Error in data$State : object of type 'closure' is not subsettable
+> rankhospital("WA", "heart attack", 7)
+Error in data$State : object of type 'closure' is not subsettable
+> rankhospital("WA", "heart attack", 7)
+Error in data$State : object of type 'closure' is not subsettable
+> source("rankhospital.R")
+> rankhospital("WA", "heart attack", 7)
+[1] YAKIMA VALLEY MEMORIAL HOSPITAL
+4510 Levels: ABBEVILLE AREA MEDICAL CENTER ... ZUNI COMPREHENSIVE COMMUNITY HEALTH CENTER
+> rankhospital("WA", "pneumonia", 1000)
+[1] <NA>
+4510 Levels: ABBEVILLE AREA MEDICAL CENTER ... ZUNI COMPREHENSIVE COMMUNITY HEALTH CENTER
+> rankhospital("NY", "heart attak", 7)
+Error in rankhospital("NY", "heart attak", 7) : invalid outcome
+> save.image("D:\\r programming\\9-7-14 r programming\\week4\\ProgAssignment2-data\\routput")
+> save.image("D:\\r programming\\9-7-14 r programming\\week4\\ProgAssignment2-data\\assignment3.txt")
+> 
